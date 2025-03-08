@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
+    <script>
+        // Redirect to mobile.html if screen width is less than 768px
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                window.location.href = "mobile.html";
+            }
+        }
+
+        // Run the function on page load
+        window.onload = checkScreenSize;
+
+        // Also check when window is resized
+        window.onresize = checkScreenSize;
+    </script>
 <body>
 
 
