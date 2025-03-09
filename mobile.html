@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📱Pradyush Mohapatra | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        // Redirect to mobile.html if screen width is less than 768px
+        function checkScreenSize() {
+            if (window.innerWidth >= 768) {
+                window.location.href = "index.html";
+            }
+        }
+
+        // Run the function on page load
+        window.onload = checkScreenSize;
+
+        // Also check when window is resized
+        window.onresize = checkScreenSize;
+    </script>
     <style>
         /* General Styles */
         * {
