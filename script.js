@@ -129,5 +129,51 @@ function downloadCV() {
     link.click();
     document.body.removeChild(link);
 }
+function toggleChat() {
+    const chatPopup = document.getElementById('chatPopup');
+    chatPopup.style.display = chatPopup.style.display === 'none' ? 'block' : 'none';
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+function sendMessage() {
+    const userInput = document.getElementById('userInput').value;
+    sendQuestion(userInput);
+}
+
+function sendQuestion(question) {
+    const chatBody = document.getElementById('chatBody');
+
+    const userMessage = `<div class="user-message">${question}</div>`;
+    chatBody.innerHTML += userMessage;
+
+    const botResponse = getBotResponse(question);
+    const botMessage = `<div class="bot-message">${botResponse}</div>`;
+    chatBody.innerHTML += botMessage;
+
+    document.getElementById('userInput').value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getBotResponse(input) {
+    const lowerInput = input.toLowerCase();
+
+    if (lowerInput.includes("who is pradyush")) {
+        return "I am Pradyush Mohapatra, a Computer Science Engineer with expertise in IoT, Machine Learning, and Web Development.";
+    } else if (lowerInput.includes("projects")) {
+        return "My projects include an AI Sign Language Translator, Smart Home Automation, and an ADAS system using YOLO and Raspberry Pi.";
+    } else if (lowerInput.includes("skills")) {
+        return "I specialize in Python, Java, IoT systems, Machine Learning, and Web Development.";
+    } else if (lowerInput.includes("contacts")) {
+        return "You can reach me at pradyushmohapatra9@gmail.com or visit my LinkedIn profile.";
+    } else {
+        return "Please choose one of the predefined questions or ask about my projects, skills, or contact information.";
+    }
+}
+
 
 
