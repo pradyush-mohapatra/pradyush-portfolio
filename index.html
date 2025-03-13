@@ -8,7 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-</head>
     <script>
         // Redirect to mobile.html if screen width is less than 768px
         function checkScreenSize() {
@@ -23,6 +22,7 @@
         // Also check when window is resized
         window.onresize = checkScreenSize;
     </script>
+</head>
 <body>
 
 
@@ -37,6 +37,14 @@
                 <li><a href="#carrier">Carrier</a></li>
             </ul>
         </nav>
+        <div id="mobile-menu" class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#fade-in">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="#careers">Careers</a>
+        </div>
+        
         <section id="home" class="hero">
             <div class="info">
                 <div class="content">
@@ -143,7 +151,7 @@ Beyond coding, I’m continuously improving my communication skills for professi
                             <i class="fa-brands fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://www.instagram.com/pradyush_mohapatra/" target="_blank" class="contact-item">
+                        <a href="https://www.instagram.com/" target="_blank" class="contact-item">
                             <i class="fa-brands fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
@@ -167,8 +175,26 @@ Beyond coding, I’m continuously improving my communication skills for professi
                         <p id="status-message"></p>
                     </div>
                 </div>
+                
+                <div class="sidebarc">
+                    <a href="https://facebook.com" target="_blank" class="facebookc">
+                        <span class="icon1"><i class="fa-brands fa-facebook"></i></span> Facebook
+                    </a>
+                    <a href="mailto:yourmail@example.com" class="emailc">
+                        <span class="icon1"><i class="fa-solid fa-envelope"></i></span> Email
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="whatsappc">
+                        <span class="icon1"><i class="fa-brands fa-whatsapp"></i></span> WhatsApp
+                    </a>
+                    <a href="https://telegram.org" target="_blank" class="telegramc">
+                        <span class="icon1"><i class="fa-brands fa-telegram"></i></span> Telegram
+                    </a>
+                    <a href="#" class="share">
+                        <span class="icon1"><i class="fa-solid fa-share-nodes"></i></span> Share
+                    </a>
+                </div>
 
-        <div class="chatbot-container">
+                <div class="chatbot-container">
                     <div class="chat-icon" onclick="toggleChat()">
                         💬
                     </div>
@@ -193,7 +219,6 @@ Beyond coding, I’m continuously improving my communication skills for professi
                         </div>
                     </div>
                 </div>
-
     </section>
 
     <footer>
