@@ -152,7 +152,6 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
-            margin-bottom:10px;
         }
 
         @keyframes pulse {
@@ -391,82 +390,131 @@
             bottom: 0;
             width: 100%;
         }
-           .chat-container {
+
+
+        .chat-icon {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 300px;
-            background: #333;
+            background: #3a297d;
             color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .chat-container {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background-color: #292929;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
         }
 
         .chat-header {
-            background: #ff4b2b;
+            background-color: #6200ea;
+            color: white;
             padding: 10px;
             text-align: center;
             font-weight: bold;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            position: relative;
         }
 
         .chat-body {
-            max-height: 400px;
-            overflow-y: auto;
             padding: 15px;
+            height: 250px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
         .chat-message {
-            background: #555;
-            padding: 8px 12px;
-            border-radius: 15px;
+            background-color: #3e3e3e;
+            color: #e0e0e0;
+            align-self: flex-end;
+            padding: 10px 15px;
+            border-radius: 15px 15px 0 15px;
             max-width: 70%;
         }
-
-        .chat-message.user {
-            align-self: flex-end;
-            background: #0ff;
-            color: #000;
-        }
-
-        .chat-message.bot {
-            align-self: flex-start;
-        }
-
-        .chat-footer {
+        .predefined-question {
+            background-color: #424242;
+            color: #e0e0e0;
             padding: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-footer button {
-            background: #ff4b2b;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
             border-radius: 10px;
             cursor: pointer;
+            text-align: left;
+            border: 2px solid #6200ea;
         }
-
-        .chat-footer button:hover {
-            background: #ff6a00;
+        .chat-footer {
+            display: flex;
+            border-top: 2px solid #6200ea;
         }
-
-        .predefined-question {
-            background: #0ff;
-            color: #000;
+        #userInput {
+            flex: 1;
             border: none;
-            padding: 8px 15px;
-            border-radius: 15px;
-            cursor: pointer;
-            margin: 5px 0;
+            padding: 10px;
+            background-color: #424242;
+            color: white;
+            outline: none;
         }
+        .class{
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .question-box {
+            background-color: #0078FF;
+            color: white;
+            align-self: flex-start;
+            padding: 10px 15px;
+            border-radius: 15px 15px 15px 0;
+            max-width: 70%;
+        }
+        #btn2{
+            border: 1px solid  #6200ea;
+            background-color:  #6200ea;
+            border-radius: 50px;
+            width: 16%;
+        }
+        .message {
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin: 5px 0;
+    max-width: 70%;
+}
+        /* Bot's Message - Left Side */
+.message.bot {
+    background: #2a2a72;
+    color: #ffffff;
+    text-align: left;
+    margin-right: auto;
+}
+
+/* User's Message - Right Side */
+.message.user {
+    background:  #424242;
+    color: #ffffff;
+    text-align: right;
+    margin-left: auto;
+}
     </style>
 </head>
 <body>
@@ -566,7 +614,6 @@
 
     <section id="contact">
         <h2 class="fade-in">Contact Me</h2>
-        <p></p>
         <p>📞 : +91 7205048743</p>
         <div class="contact-container">
             <a href="mailto:pradyushmohapatra9@gmail.com" class="contact-item">
@@ -581,27 +628,29 @@
                 <i class="fa-brands fa-linkedin"></i>
                 <span>LinkedIn</span>
             </a>
-            <a href="https://www.instagram.com/pradyush_mohapatra/" target="_blank" class="contact-item">
+            <a href="https://www.instagram.com/" target="_blank" class="contact-item">
                 <i class="fa-brands fa-instagram"></i>
                 <span>Instagram</span>
             </a>
         </div>
     </section>
-     <div class="chat-container">
-        <div class="chat-header">💬 Chat with Me</div>
-        <div class="chat-body" id="chat-body">
-            <div class="chat-message bot">Hey! How can I help you today?</div>
-            <button class="predefined-question" onclick="sendQuestion('Who is Pradyush?')">Who is Pradyush?</button>
-            <button class="predefined-question" onclick="sendQuestion('Projects')">Projects</button>
-            <button class="predefined-question" onclick="sendQuestion('Skills')">Skills</button>
-            <button class="predefined-question" onclick="sendQuestion('Contacts')">Contacts</button>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="user-input" placeholder="Type a message..." style="flex: 1; padding: 8px; border-radius: 10px; border: none;">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+
+    <div class="chat-icon" id="chatIcon" onclick="showChat()">💬</div>
+
+<div class="chat-container" id="chatContainer">
+    <div class="chat-header">💬 Chat with Me</div>
+    <div class="chat-body" id="chat-body">
+        <div class="message bot">🙋🏻‍♀️say hi</div>
     </div>
-    <button class="btn" onclick="downloadCV()">Download CV<i class="fa-solid fa-download"></i></button>
+    <div class="chat-footer">
+        <input type="text" id="userInput" placeholder="Type a message..." style="flex: 1; padding: 8px; border-radius: 20px; border:slateblue;">
+        <button id="btn2" onclick="sendMessage()">send</button>
+        
+    </div>
+</div>
+
+
+    <button class="btn" onclick="downloadCV()">Download CV</button>
 
     <footer>
         &copy; 2025 Pradyush Mohapatra. All Rights Reserved.
@@ -669,44 +718,78 @@
              link.click();
              document.body.removeChild(link);
         }
-         const chatBody = document.getElementById("chat-body");
 
-        function appendMessage(text, isUser = false) {
-            const messageDiv = document.createElement("div");
-            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
-            messageDiv.textContent = text;
-            chatBody.appendChild(messageDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
+
+
+        function showChat() {
+            document.getElementById('chatContainer').style.display = 'block';
+            document.getElementById('chatIcon').style.display = 'none';
         }
 
+        // Prevent body click from closing the chat when interacting inside the chat container
+    document.getElementById('chatContainer').addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevents the body click event from firing
+    });
+
+    // Close chat when clicking outside
+    document.body.addEventListener('click', function (e) {
+        const chatContainer = document.getElementById("chatContainer");
+        const chatIcon = document.getElementById("chatIcon");
+
+        if (!chatContainer.contains(e.target) && e.target.id !== 'chatIcon') {
+            chatContainer.style.display = 'none';
+            chatIcon.style.display = 'flex';
+        }
+    });
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+    
+    function sendMessage() {
+        const userInput = document.getElementById('userInput').value;
+        sendQuestion(userInput);
+    }
         function sendQuestion(question) {
-            appendMessage(question, true);
-            setTimeout(() => handleBotReply(question), 600);
+        const chatBody = document.getElementById('chat-body');
+    
+        const userMessage = `<div class="message user">${question}</div>`;
+        chatBody.innerHTML += userMessage;
+    
+        const botResponse = getBotResponse(question);
+        const botMessage = `<div class="message bot">${botResponse}</div>`;
+        chatBody.innerHTML += botMessage;
+    
+        document.getElementById('userInput').value = "";
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function getBotResponse(input) {
+        const lowerInput = input.toLowerCase();
+    
+        if (lowerInput.includes("hi")||lowerInput.includes("hey")||lowerInput.includes("haloo")||lowerInput.includes("haloo")) {
+            document.getElementById('chat-body').innerHTML += `
+    
+        <button class="predefined-question" onclick="sendQuestion('Who is Pradyush?')">Who is Pradyush?</button>
+        <button class="predefined-question" onclick="sendQuestion('Projects')">Projects</button>
+        <button class="predefined-question" onclick="sendQuestion('Skills')">Skills</button>
+        <button class="predefined-question" onclick="sendQuestion('Contacts')">Contacts</button>
+        `;
+        return "";  
+        } 
+         
+        else if (lowerInput.includes("who is pradyush")) {
+            return "I am Pradyush Mohapatra, a Computer Science Engineer with expertise in IoT, Machine Learning, and Web Development.";
+        } else if (lowerInput.includes("projects")) {
+            return "My projects include an AI Sign Language Translator, Smart Home Automation, and an ADAS system using YOLO and Raspberry Pi.";
+        } else if (lowerInput.includes("skills")) {
+            return "I specialize in Python, Java, IoT systems, Machine Learning, and Web Development.";
+        } else if (lowerInput.includes("contacts")) {
+            return "You can reach me at pradyushmohapatra9@gmail.com or visit my LinkedIn profile.";
+        } else {
+            return "Please choose one of the predefined questions or ask about my projects, skills, or contact information.";
         }
-
-        function sendMessage() {
-            const userInput = document.getElementById("user-input").value.trim();
-            if (userInput) {
-                appendMessage(userInput, true);
-                setTimeout(() => handleBotReply(userInput), 600);
-                document.getElementById("user-input").value = "";
-            }
-        }
-
-        function handleBotReply(message) {
-            const lowerMessage = message.toLowerCase();
-            if (lowerMessage.includes("who is pradyush")) {
-                appendMessage("I'm Pradyush Mohapatra, a passionate Computer Science Engineer skilled in AI, IoT, and Web Development.");
-            } else if (lowerMessage.includes("projects")) {
-                appendMessage("I've worked on projects like an AI-powered sign language translator, an automated pet feeder, and a smart home automation system.");
-            } else if (lowerMessage.includes("skills")) {
-                appendMessage("My skills include Python, Java, Machine Learning, IoT integration, and Web Development.");
-            } else if (lowerMessage.includes("contacts")) {
-                appendMessage("You can contact me via Gmail at pradyushmohapatra9@gmail.com or visit my GitHub and LinkedIn profiles.");
-            } else {
-                appendMessage("I'm still learning! Ask me about my skills, projects, or contact information.");
-            }
-        }
+    }
     </script>
 </body>
 </html>
