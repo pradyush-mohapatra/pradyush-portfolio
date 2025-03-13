@@ -168,6 +168,31 @@ Beyond coding, I’m continuously improving my communication skills for professi
                     </div>
                 </div>
 
+        <div class="chatbot-container">
+                    <div class="chat-icon" onclick="toggleChat()">
+                        💬
+                    </div>
+            
+                    <div class="chat-popup" id="chatPopup">
+                        <div class="chat-header">
+                            <h3>Chat with Pradyush</h3>
+                            <span class="close-btn" onclick="toggleChat()">×</span>
+                        </div>
+            
+                        <div class="chat-body" id="chatBody">
+                            <div class="bot-message">Hi there! 👋 How can I help you?</div>
+                            <div class="question" onclick="sendQuestion('Who is Pradyush?')">Who is Pradyush?</div>
+                            <div class="question" onclick="sendQuestion('Projects')">Projects</div>
+                            <div class="question" onclick="sendQuestion('Skills')">Skills</div>
+                            <div class="question" onclick="sendQuestion('Contacts')">Contacts</div>
+                        </div>
+            
+                        <div class="chat-footer">
+                            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                            <button onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </div>
 
     </section>
 
