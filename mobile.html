@@ -36,8 +36,8 @@
         }
 
         header {
-            background-color: #ff6a00;
-            color: white;
+            background-color: #024950;
+            color: rgb(255, 255, 255);
             padding: 15px;
             font-size: 1.2em;
             position: fixed;
@@ -136,7 +136,7 @@
         }
 
         .content h1 span {
-            color: #ff4b2b;
+            color: #3ed3dd;
         }
 
         .content p {
@@ -145,7 +145,7 @@
 
         .btn {
             display: inline-block;
-            background: #ff4b2b;
+            background: #3ed2dd48;
             color: white;
             padding: 10px 20px;
             margin-top: 20px;
@@ -592,23 +592,25 @@
         <div class="project-container">
             <div class="project-card slide-up">
                 <h3 class="imp">AI Sign Language Translator</h3>
-                <p>Built an AI-powered sign language translator using Raspberry Pi.</p>
+                <p>Created a real-time Raspberry Pi based AI Sign language translator for ASL using a webcam and machine learning.
+                    </p>
             </div>
             <div class="project-card slide-up">
                 <h3 class="imp">Automated Pet Feeder</h3>
-                <p>Designed an automated pet feeding system using Raspberry Pi.</p>
+                <p>Designed an automated pet feeding system using Raspberry Pi to schedule and dispense food for pets remotely from any where.</p>
             </div>
             <div class="project-card slide-up">
                 <h3 class="imp">Online Teacher Finder</h3>
                 <p>Developed a web platform to connect students with online tutors.</p>
+                <p>Used HTML, CSS, JSP, and MySQL to simplify tutor search and communication.</p>
             </div>
             <div class="project-card slide-up">
                 <h3 class="imp">Smart Home System</h3>
-                <p>Developed a web platform to connect all applinces of home with smartphone.</p>
+                <p>Developed a Smart Home System to connect and control all home appliances via smartphone using IoT and a web-based platform.</p>
             </div>
             <div class="project-card slide-up">
                 <h3 class="imp">Robotic Arm</h3>
-                <p>Developed a web platform to connect all applinces of home with smartphone.</p>
+                <p>Designed a Robotic Arm controlled via Arduino to perform precise movements for automation tasks.</p>
             </div>
         </div>
 
@@ -773,6 +775,7 @@
         <button class="predefined-question" onclick="sendQuestion('Who is Pradyush?')">Who is Pradyush?</button>
         <button class="predefined-question" onclick="sendQuestion('Projects')">Projects</button>
         <button class="predefined-question" onclick="sendQuestion('Skills')">Skills</button>
+        <button class="predefined-question" onclick="sendQuestion('education')">Education</button>
         <button class="predefined-question" onclick="sendQuestion('Contacts')">Contacts</button>
         `;
         return "";  
@@ -784,10 +787,12 @@
             return "My projects include an AI Sign Language Translator, Smart Home Automation, and an ADAS system using YOLO and Raspberry Pi.";
         } else if (lowerInput.includes("skills")) {
             return "I specialize in Python, Java, IoT systems, Machine Learning, and Web Development.";
-        } else if (lowerInput.includes("contacts")) {
+        } else if (lowerInput.includes("education")) {
+        return "Currently enrolled in Bachelor of Technology (B.Tech) in Computer Science & Engineering at Institute Of Technical Education and Research (ITER), SOA University.";
+       }else if (lowerInput.includes("contacts")) {
             return "You can reach me at pradyushmohapatra9@gmail.com or visit my LinkedIn profile.";
         } else {
-            return "Please choose one of the predefined questions or ask about my projects, skills, or contact information.";
+            return "Please choose one of the predefined questions or ask about my projects, skills, or contact information.Or to get qns say hi.";
         }
     }
     </script>
